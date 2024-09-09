@@ -87,7 +87,7 @@ Degree: number of columns
 
 Query:
 
-```@SQL
+```SQL
 SELECT *
 FROM Students S
 WHERE S.age=18;
@@ -95,7 +95,7 @@ WHERE S.age=18;
 Output is whole row of the age 18 because of SELECT *
 
 With enrolled table:
-```@SQL
+```SQL
 SELECT S.name, E.cid
 FROM Students S, Enrolled E
 WHERE S.sid=E.sid AND E.grade='A';
