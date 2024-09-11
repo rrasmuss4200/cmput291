@@ -108,3 +108,22 @@ WHERE name = 'Bob';
 - it establishes and enforces a relationship between the two tables
 - creates a link between two tabkes by ensuring that the value of the foreign key column corresponds to an existing value in the primary key column of the referenced table
 - enforces referential integrity
+
+```SQL
+CREATE TABLE orders (OrderID NOT NULL,
+CustomerID INT, PRIMARY KEY (OrderID), FOREIGN KEY (CustomerID)
+REFERENCES Customer (CustomerID))
+```
+
+- Referencing table holds the primary key
+- Referenced table holds the foreign key
+
+Deleting a row of data from the customer's (referencing table with PK) violates the **referntial integrity rule**
+
+### Composite Key
+
+- 2 or more keys that is a primary key
+
+### Simple key
+
+- 1 key that is a primary key
