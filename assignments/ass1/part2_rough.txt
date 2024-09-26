@@ -1,0 +1,35 @@
+CREATE TABLE Employees (
+    Role TEXT,
+    ID INTEGER,
+    Name TEXT,
+    Address TEXT,
+    PRIMARY KEY (ID),
+    FOREIGN KEY (ID, Address) REFERENCES Facilities
+    ON DELETE NO ACTION
+);
+
+CREATE TABLE Facilities (
+    ID INTEGER,
+    Address TEXT,
+    City TEXT,
+    PRIMARY KEY (ID),
+    ON DELETE CASCADE
+);
+
+CREATE TABLE Parcels (
+    TrackNumber INTEGER,
+    DeliveryAddress TEXT,
+    DropTime DATETIME,
+    Goods TEXT,
+    Weight DECIMAL(10,2),
+    PRIMARY KEY (TrackNumber, Goods),
+
+);
+
+CREATE TABLE Supervise (
+    Supervisor_ID INT,
+    Supervisee_ID INT,
+    FOREIGN KEY (Supervisor_ID) REFERENCES Employees(ID),
+    FOREIGN KEY (Supervisee_ID) REFERENCES Employees(ID),
+    PRIMARY KEY (Supervisor_ID, Supervisee_ID)
+);
