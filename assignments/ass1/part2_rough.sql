@@ -3,6 +3,7 @@ CREATE TABLE Employees_Work (
     ID INTEGER,
     Name TEXT,
     Address TEXT,
+    SupervisorID INTEGER,
     PRIMARY KEY (ID), NOT NULL,
     FOREIGN KEY (ID) REFERENCES Facilities_Manages
     ON DELETE NO ACTION
@@ -54,3 +55,18 @@ CREATE TABLE Exit (
     FOREIGN KEY ID REFERENCES Facilities,
     FOREIGN KEY TrackNumber REFERENCES Parcels,
 );
+
+CREATE TABLE Regular (
+    TrackNumber INTEGER,
+    FOREIGN KEY (TrackNumber) REFERENCES Parcels,
+    PRIMARY KEY (TrackNumber),
+);
+
+ CREATE TABLE Expedited (
+    Date DATE,
+    Country TEXT,
+    TotalValue DECIMAL(5,2),
+    TrackNumber INTEGER,
+    PRIMARY KEY (TrackNumber),
+    FOREIGN KEY (TrackNumber) REFERENCES Parcels,
+ )
